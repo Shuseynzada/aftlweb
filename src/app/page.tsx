@@ -1,7 +1,7 @@
 "use client"
 import Hero from '../components/Hero';
 import Navbar from '../components/Navbar';
-import styles from './HomePage.module.css';
+import styles from './Homepage.module.css';
 
 export default function HomePage() {
 
