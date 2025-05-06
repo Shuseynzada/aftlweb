@@ -1,9 +1,53 @@
 "use client"
 import Hero from '../components/Hero';
 import Navbar from '../components/Navbar';
+import Services from '../components/Services';
 import styles from './Homepage.module.css';
+import { useEffect, useRef, useState } from 'react';
 
 export default function HomePage() {
+  // Animation state for sections
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const fleetRef = useRef<HTMLDivElement>(null);
+  const complianceRef = useRef<HTMLDivElement>(null);
+  const [aboutVisible, setAboutVisible] = useState(false);
+  const [fleetVisible, setFleetVisible] = useState(false);
+  const [complianceVisible, setComplianceVisible] = useState(false);
+
+  useEffect(() => {
+    const makeObserver = (ref: React.RefObject<HTMLDivElement>, setVisible: (v: boolean) => void) => {
+      return new window.IntersectionObserver(
+        ([entry]) => setVisible(entry.isIntersecting),
+        { threshold: 0.18 }
+      );
+    };
+    const aboutObs = makeObserver(aboutRef, setAboutVisible);
+    const fleetObs = makeObserver(fleetRef, setFleetVisible);
+    const complianceObs = makeObserver(complianceRef, setComplianceVisible);
+    if (aboutRef.current) aboutObs.observe(aboutRef.current);
+    if (fleetRef.current) fleetObs.observe(fleetRef.current);
+    if (complianceRef.current) complianceObs.observe(complianceRef.current);
+    return () => {
+      aboutObs.disconnect();
+      fleetObs.disconnect();
+      complianceObs.disconnect();
+    };
+  }, []);
+
+  const renderPattern = () => (
+    <div className={styles.sectionPattern}>
+      {[...Array(8)].map((_, i) => (
+        <span
+          key={i}
+          style={{
+            top: `${Math.random() * 90}%`,
+            left: `${Math.random() * 90}%`,
+            animationDelay: `${Math.random() * 10}s`,
+          }}
+        />
+      ))}
+    </div>
+  );
 
   return (
     <div className={styles.container}>
@@ -13,7 +57,12 @@ export default function HomePage() {
         subtitle="Your trusted tanker charterer across the Mediterranean and beyond"
         imgSrc="/images/hero-tanker.png"
       />
-      <section id="about" className={styles.section}>
+      <section
+        id="about"
+        ref={aboutRef}
+        className={`${styles.section} ${styles['section-animated']} ${aboutVisible ? styles['section-visible'] : ''} ${styles.glass}`}
+      >
+        {renderPattern()}
         <h2>About AFTL Shipping</h2>
         <p>
           AFTL Shipping, a subsidiary of Alkagesta LTD, stands as one of the leading charterers
@@ -23,23 +72,25 @@ export default function HomePage() {
           and market demand at any given time.
         </p>
       </section>
-      <section id="services" className={`${styles.section} ${styles.services}`}>
-        <h2>Core Services</h2>
-        <ul>
-          <li>Chartering (Spot & Time Charter)</li>
-          <li>Freight Forward Agreements (FFA)</li>
-          <li>Operations Management</li>
-          <li>Claims Handling</li>
-        </ul>
-      </section>
-      <section id="fleet" className={styles.section}>
+      <Services />
+      <section
+        id="fleet"
+        ref={fleetRef}
+        className={`${styles.section} ${styles['section-animated']} ${fleetVisible ? styles['section-visible'] : ''} ${styles.glass}`}
+      >
+        {renderPattern()}
         <h2>Fleet & Operations</h2>
         <p>
           AFTL Shipping operates a high-quality fleet of tankers and carriers, which are available for both spot and
           time-charter agreements. This allows for maximum flexibility in servicing the dynamic needs of our clients.
         </p>
       </section>
-      <section id="compliance" className={`${styles.section} ${styles.compliance}`}>
+      <section
+        id="compliance"
+        ref={complianceRef}
+        className={`${styles.section} ${styles['section-animated']} ${complianceVisible ? styles['section-visible'] : ''} ${styles.glass} ${styles.compliance}`}
+      >
+        {renderPattern()}
         <h2>Legal & Compliance Vetting</h2>
         <p>
           AFTL Shipping has a thorough and multi-layered approach to compliance and vessel vetting to ensure its operations

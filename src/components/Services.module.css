@@ -1,0 +1,253 @@
+.services {
+  position: relative;
+  padding: 8rem 2rem;
+  background: var(--navy);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.services.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-size: 3rem;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.separator {
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--steel-grey), transparent);
+  margin: 2rem auto;
+  position: relative;
+}
+
+.separator::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, var(--white), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.subtitle {
+  color: var(--steel-grey-light);
+  text-align: center;
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 4rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards 0.2s;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  perspective: 1000px;
+}
+
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cardContent {
+  position: relative;
+  z-index: 2;
+}
+
+.cardBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  transform: translateZ(-1px);
+  transition: opacity 0.3s ease;
+}
+
+.card.active .cardBackground {
+  opacity: 0.2;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1.5rem;
+  color: var(--steel-grey-light);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.card:hover .icon {
+  transform: scale(1.1);
+  color: var(--white);
+}
+
+.card h3 {
+  color: var(--white);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.card p {
+  color: var(--steel-grey-light);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.details.visible {
+  max-height: 300px;
+  opacity: 1;
+}
+
+.details ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.details li {
+  color: var(--steel-grey-light);
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideInRight 0.5s ease forwards;
+}
+
+.details li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--steel-grey);
+}
+
+.backgroundPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.pattern {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float 20s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-1000px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .services {
+    padding: 4rem 1rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1400px;
+  }
+
+  .title {
+    font-size: 3.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+  }
+} 
