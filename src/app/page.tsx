@@ -15,10 +15,10 @@ export default function HomePage() {
   const [complianceVisible, setComplianceVisible] = useState(false);
 
   useEffect(() => {
-    const makeObserver = (ref: React.RefObject<HTMLDivElement>, setVisible: (v: boolean) => void) => {
+    const makeObserver = (ref: React.RefObject<HTMLDivElement | null>, setVisible: (v: boolean) => void) => {
       return new window.IntersectionObserver(
         ([entry]) => setVisible(entry.isIntersecting),
-        { threshold: 0.18 }
+        { threshold: 0.2 }
       );
     };
     const aboutObs = makeObserver(aboutRef, setAboutVisible);
