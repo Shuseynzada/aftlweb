@@ -10,7 +10,6 @@ interface HeroProps {
 
 const Hero = ({ title, subtitle, imgSrc }: HeroProps) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [showButton, setShowButton] = useState(true);
   const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -20,19 +19,12 @@ const Hero = ({ title, subtitle, imgSrc }: HeroProps) => {
   useEffect(() => {
     // Show button only when hero is in view
     const observer = new window.IntersectionObserver(
-      ([entry]) => setShowButton(entry.isIntersecting),
+      ([entry]) => {}, // No-op
       { threshold: 0.2 }
     );
     if (heroRef.current) observer.observe(heroRef.current);
     return () => observer.disconnect();
   }, []);
-
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <div id="hero" className={styles.hero} style={{ backgroundImage: `url(${imgSrc})` }} ref={heroRef}>

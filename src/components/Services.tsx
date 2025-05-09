@@ -63,8 +63,6 @@ const services: Service[] = [
   },
 ];
 
-const NUM_PATTERNS = 12;
-
 const Services: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
