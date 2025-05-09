@@ -70,6 +70,8 @@
 }
 
 .navLinks a.activeLink::after {
+  position: absolute;
+  left: 0;
   width: 100%;
   background: linear-gradient(90deg, var(--navy), var(--steel-grey));
   height: 3px;

@@ -70,6 +70,21 @@ const Services: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
+  const patternPositions = [
+    { top: 10, left: 20, delay: 1 },
+    { top: 30, left: 40, delay: 2 },
+    { top: 50, left: 60, delay: 3 },
+    { top: 70, left: 80, delay: 4 },
+    { top: 20, left: 70, delay: 5 },
+    { top: 60, left: 30, delay: 6 },
+    { top: 80, left: 10, delay: 7 },
+    { top: 40, left: 50, delay: 8 },
+    { top: 15, left: 85, delay: 2.5 },
+    { top: 85, left: 15, delay: 4.5 },
+    { top: 55, left: 75, delay: 6.5 },
+    { top: 75, left: 55, delay: 8.5 },
+  ];
+
   useEffect(() => {
     const observer = new window.IntersectionObserver(
       ([entry]) => setVisible(entry.isIntersecting),
@@ -86,14 +101,14 @@ const Services: React.FC = () => {
       ref={sectionRef}
     >
       <div className={styles.backgroundPattern}>
-        {[...Array(NUM_PATTERNS)].map((_, i) => (
+        {patternPositions.map((pos, i) => (
           <span
             key={i}
             className={styles.pattern}
             style={{
-              top: `${Math.random() * 90}%`,
-              left: `${Math.random() * 90}%`,
-              animationDelay: `${Math.random() * 10}s`,
+              top: `${pos.top}%`,
+              left: `${pos.left}%`,
+              animationDelay: `${pos.delay}s`,
             }}
           />
         ))}
