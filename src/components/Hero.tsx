@@ -19,7 +19,7 @@ const Hero = ({ title, subtitle, imgSrc }: HeroProps) => {
   useEffect(() => {
     // Show button only when hero is in view
     const observer = new window.IntersectionObserver(
-      ([entry]) => {}, // No-op
+      ([]) => {}, // No-op
       { threshold: 0.2 }
     );
     if (heroRef.current) observer.observe(heroRef.current);
