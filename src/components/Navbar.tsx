@@ -55,7 +55,18 @@ const Navbar = () => {
     <nav className={navClass}>
       <div className={styles.logo}>
         <Link href="/" onClick={() => scrollToSection('hero')}>
-          <Image width={100} height={40} src="/images/logo.png" alt="AFTL Shipping" />
+          <Image 
+            width={200} 
+            height={80} 
+            src="/images/logo.png" 
+            alt="AFTL Shipping"
+            priority
+            style={{ 
+              objectFit: 'contain',
+              height: '100%',
+              width: 'auto'
+            }}
+          />
         </Link>
       </div>
 
