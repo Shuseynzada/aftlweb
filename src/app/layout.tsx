@@ -4,7 +4,6 @@ import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: 'AFTL Shipping - Your Trusted Tanker Charterer',
-  description: 'AFTL Shipping, a leading charterer of tanker vessels in the Mediterranean with global presence. Specializing in tanker chartering and freight trading.',
   metadataBase: new URL('https://aftlweb.vercel.app'),
   icons: {
     icon: [
@@ -18,7 +17,6 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'AFTL Shipping - Your Trusted Tanker Charterer',
-    description: 'AFTL Shipping, a leading charterer of tanker vessels in the Mediterranean with global presence. Specializing in tanker chartering and freight trading.',
     url: 'https://aftlweb.vercel.app',
     siteName: 'AFTL Shipping',
     images: [
@@ -35,7 +33,6 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'AFTL Shipping - Your Trusted Tanker Charterer',
-    description: 'AFTL Shipping, a leading charterer of tanker vessels in the Mediterranean with global presence.',
     images: ['/images/logo.png'],
     site: '@aftlshipping',
     creator: '@aftlshipping',
