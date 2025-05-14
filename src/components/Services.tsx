@@ -11,7 +11,7 @@ interface Service {
 const services: Service[] = [
   {
     title: 'Chartering (Spot & Time Charter)',
-    description: 'Flexible chartering solutions for spot and time-charter agreements, tailored to your needs.',
+    description: 'Flexible chartering solutions for spot and time-charter agreements, strategically tailored to address our objectives as well as our customers',
     details: [
       'Spot & time-charter contracts',
       'Global reach',
@@ -50,7 +50,7 @@ const services: Service[] = [
   },
   {
     title: 'Claims Handling',
-    description: 'Expert claims handling to protect your interests and resolve disputes efficiently.',
+    description: 'A dedicated claims team collaborates closely with shipping counterparts to ensure efficient claim resolution in accordance with established agreements.',
     details: [
       'Claims assessment',
       'Negotiation & settlement',
