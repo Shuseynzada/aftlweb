@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState, useRef } from 'react';
+import Image from 'next/image';
 import styles from './Hero.module.css';
 
 interface HeroProps {
@@ -30,7 +31,17 @@ const Hero = ({ title, subtitle, imgSrc }: HeroProps) => {
     <div id="hero" className={styles.hero} style={{ backgroundImage: `url(${imgSrc})` }} ref={heroRef}>
       <div className={styles.overlay}>
         <div className={`${styles.content} ${isVisible ? styles.visible : ''}`}>
-          <h1 className={styles.title}>{title}</h1>
+          <div className={styles.titleContainer}>
+            <h1 className={styles.title}>{title}</h1>
+            <Image 
+              src="/images/logo.png"
+              alt="AFTL Shipping Logo"
+              width={200}
+              height={80}
+              priority
+              className={styles.heroLogo}
+            />
+          </div>
           <div className={styles.separator}></div>
           <p className={styles.subtitle}>{subtitle}</p>
         </div>

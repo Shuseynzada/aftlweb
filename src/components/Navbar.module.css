@@ -28,7 +28,17 @@
 }
 
 .navbar.scrolled .navLinks a {
-  color: var(--white);
+  background: linear-gradient(
+    45deg,
+    var(--white) 0%,
+    var(--steel-grey-light) 50%,
+    var(--white) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: shine 8s linear infinite;
 }
 
 .navbar.hidden {
@@ -45,7 +55,7 @@
 .logo img {
   height: auto;
   width: 100%;
-  max-height: 50px;
+  max-height: 70px;
   transition: transform 0.3s ease;
 }
 
@@ -66,6 +76,17 @@
   position: relative;
   padding: 0.5rem 0;
   transition: color 0.3s;
+  background: linear-gradient(
+    45deg,
+    var(--white) 0%,
+    var(--steel-grey-light) 50%,
+    var(--white) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: shine 8s linear infinite;
 }
 
 .navLinks a.activeLink {
@@ -123,16 +144,16 @@
 }
 
 .hamburger.active span:first-child {
-  transform: rotate(45deg) translate(4px, 4px);
+  transform: rotate(45deg);
 }
 
 .hamburger.active span:nth-child(2) {
   opacity: 0;
-  transform: scaleX(0.5);
+  transform: translateX(-20px);
 }
 
 .hamburger.active span:last-child {
-  transform: rotate(-45deg) translate(4px, -4px);
+  transform: rotate(-45deg);
 }
 
 @media (max-width: 768px) {
@@ -146,7 +167,7 @@
     position: absolute;
     top: 70px;
     right: 0;
-    background: rgba(255,255,255,0.95);
+    background: rgba(26,54,93,0.95);
     width: 100vw;
     padding: 2rem 1.5rem 2rem 2rem;
     box-shadow: 0 2px 16px 0 rgba(0,31,63,0.10);
@@ -164,7 +185,21 @@
     opacity: 1;
   }
 
+  .navLinks a {
+    color: var(--white);
+    font-size: 1.2rem;
+    padding: 0.8rem 0;
+  }
+
+  .navLinks a.activeLink {
+    color: var(--steel-grey-light);
+  }
+
+  .navLinks a::after {
+    background-color: var(--white);
+  }
+
   .logo img {
-    max-height: 40px;
+    max-height: 50px;
   }
 }

@@ -2,7 +2,6 @@
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import Services from "../components/Services";
-// import Careers from "../components/Careers";
 import styles from "./Homepage.module.css";
 import { useEffect, useRef, useState } from "react";
 
@@ -148,7 +147,6 @@ export default function HomePage() {
           maintain the efficiency, safety, and reliability of its operations.
         </p>
       </section>
-      {/* <Careers /> */}
       <section
         id="contact"
         ref={contactRef}
@@ -229,7 +227,7 @@ export default function HomePage() {
                     marginBottom: 2,
                   }}
                 >
-                  Email
+                  Email:
                 </div>
                 <a
                   href="mailto:info@aftl.com"
@@ -286,7 +284,7 @@ export default function HomePage() {
                     marginBottom: 2,
                   }}
                 >
-                  Locations
+                  Address:
                 </div>
                 <div
                   style={{
@@ -321,7 +319,7 @@ export default function HomePage() {
         </div>
       </section>
       <footer className={styles.footer}>
-        <p>&copy; 2023 AFTL Shipping. All rights reserved.</p>
+        <p>&copy; 2025 AFTL Shipping. All rights reserved.</p>
       </footer>
     </div>
   );
