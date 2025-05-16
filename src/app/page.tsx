@@ -230,7 +230,7 @@ export default function HomePage() {
                   Email:
                 </div>
                 <a
-                  href="mailto:info@aftl.com"
+                  href="mailto:info@aftlshipping.com"
                   style={{
                     color: "#2b4f81",
                     fontWeight: 500,
@@ -238,7 +238,7 @@ export default function HomePage() {
                     fontSize: "1.05rem",
                   }}
                 >
-                  info@aftl.com
+                  info@aftlshipping.com
                 </a>
               </div>
             </div>
